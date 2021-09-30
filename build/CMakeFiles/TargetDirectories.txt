@@ -1,4 +1,0 @@
-F:/QtC++_practical_project/cake_game/build/CMakeFiles/edit_cache.dir
-F:/QtC++_practical_project/cake_game/build/CMakeFiles/cake_game.dir
-F:/QtC++_practical_project/cake_game/build/CMakeFiles/rebuild_cache.dir
-F:/QtC++_practical_project/cake_game/build/CMakeFiles/cake_game_autogen.dir

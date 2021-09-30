@@ -1,3 +1,0 @@
-D:\Cmake\bin\cmake.exe -E rm -f CMakeFiles\cake_game.dir/objects.a
-C:\mingw64\bin\ar.exe qc CMakeFiles\cake_game.dir/objects.a @CMakeFiles\cake_game.dir\objects1.rsp
-C:\mingw64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\cake_game.dir/objects.a -Wl,--no-whole-archive -o cake_game.exe -Wl,--out-implib,libcake_game.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\cake_game.dir\linklibs.rsp
