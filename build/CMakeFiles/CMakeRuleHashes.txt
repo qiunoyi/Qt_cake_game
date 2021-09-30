@@ -1,0 +1,2 @@
+# Hashes of file build rules.
+92c91ea7e25f48a9b250a2e3ac271dfc CMakeFiles/cake_game_autogen
