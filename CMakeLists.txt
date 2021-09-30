@@ -32,6 +32,7 @@ if(ANDROID)
     widget.cpp
     widget.h
     widget.ui
+    core.h
   )
 else()
   add_executable(cake_game
@@ -39,6 +40,7 @@ else()
     widget.cpp
     widget.h
     widget.ui
+    core.h
   )
 endif()
 

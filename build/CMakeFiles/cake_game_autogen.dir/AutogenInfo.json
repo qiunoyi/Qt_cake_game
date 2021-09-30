@@ -74,6 +74,12 @@
 	"HEADERS" : 
 	[
 		[
+			"F:/QtC++_practical_project/cake_game/core.h",
+			"MU",
+			"EWIEGA46WW/moc_core.cpp",
+			null
+		],
+		[
 			"F:/QtC++_practical_project/cake_game/widget.h",
 			"MU",
 			"EWIEGA46WW/moc_widget.cpp",
