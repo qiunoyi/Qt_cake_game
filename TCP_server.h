@@ -3,6 +3,7 @@
 #include <QTcpSocket>
 #include <QObject>
 #include <vector>
+#include <QString>
 using namespace std;
 //服务端的类封装
 class TCP_server : public QObject
@@ -49,6 +50,13 @@ public:
         tcp->write("");
         //.......
     }
+    void Broadcasting()
+    {
+        for(auto it:m_tcps)
+        {
+            it->write("");
+        }
+    }
 
 
 private:
@@ -56,4 +64,6 @@ private:
     vector<QTcpSocket *> m_tcps;
     unsigned short port;
     unsigned short connect_num;
+
+public slots:
 };
