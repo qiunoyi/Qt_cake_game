@@ -34,6 +34,7 @@ if(ANDROID)
     widget.ui
     core.h
     TCP_server.h
+    TCP_client.h
   )
 else()
   add_executable(cake_game
@@ -43,6 +44,7 @@ else()
     widget.ui
     core.h
     TCP_server.h
+    TCP_client.h
   )
 endif()
 
