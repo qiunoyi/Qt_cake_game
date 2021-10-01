@@ -1,0 +1,55 @@
+#pragma once
+#include <QTcpServer>
+#include <QTcpSocket>
+#include <QObject>
+#include <vector>
+using namespace std;
+//服务端的类封装
+class TCP_server : public QObject
+{
+    Q_OBJECT
+public:
+    TCP_server(unsigned short p) : port(p)
+    {
+        m_s = new QTcpServer(this);
+        connect_num = 0;
+    }
+    //监听函数
+    void listen()
+    {
+        m_s->listen(QHostAddress::Any, port);
+        connect(m_s, &QTcpServer::newConnection, this, [=]()
+        {
+            QTcpSocket *temp = m_s->nextPendingConnection();
+            m_tcps.push_back(temp);
+            ++connect_num;
+            connect(temp, &QTcpSocket::disconnected, this, [=, &temp]()
+            {
+                m_tcps.erase(find(m_tcps.begin(),m_tcps.end(),temp));
+                temp->close();
+                temp->deleteLater();
+                temp=nullptr;
+                --connect_num;          
+            });
+        });
+    }
+    //数据传输函数
+    void send()
+    {
+
+    }
+    void read()
+    {
+        
+    }
+    //连接管理函数
+    void manage()
+    {
+    }
+
+private:
+    QTcpServer *m_s;
+    vector<QTcpSocket *> m_tcps;
+    unsigned short port;
+    unsigned short connect_num;
+};
