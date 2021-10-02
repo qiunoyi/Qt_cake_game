@@ -1,5 +1,5 @@
 #include "playscene.h"
-PlayScene::PlayScene()
+PlayScene::PlayScene(QWidget*parent): QWidget(parent)
 {
     //界面还没生成
     game *gamer=new game;

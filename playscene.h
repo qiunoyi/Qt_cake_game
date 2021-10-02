@@ -6,6 +6,6 @@ class PlayScene : public QWidget
 {
     Q_OBJECT
 public:
-    PlayScene();
+    PlayScene(QWidget*parent= nullptr);
 
 };

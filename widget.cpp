@@ -9,9 +9,9 @@ Widget::Widget(QWidget *parent)
     ui->setupUi(this);
     MyPushButton *localGameBtn=new MyPushButton(":/res/local_game_b.jfif","",this);
     localGameBtn->move(this->width()*0.5-localGameBtn->width()*0.5,this->height()*0.7);
-    PlayScene *local_play=new PlayScene;
     connect(localGameBtn,&MyPushButton::clicked,localGameBtn,[=]
     {
+        PlayScene *local_play=new PlayScene;
         localGameBtn->zoom1();
         localGameBtn->zoom2();
         this->hide();
