@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>res/background.jfif</file>
+        <file>res/create_room_b.jfif</file>
+        <file>res/hall_b.jfif</file>
+        <file>res/join_b.png</file>
+        <file>res/local_game_b.jfif</file>
+    </qresource>
+</RCC>
