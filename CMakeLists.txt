@@ -11,6 +11,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 11)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
+
+
 # QtCreator supports the following variables for Android, which are identical to qmake Android variables.
 # Check http://doc.qt.io/qt-5/deployment-android.html for more information.
 # They need to be set before the find_package(Qt5 ...) call.
@@ -26,6 +28,12 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(Qt5 COMPONENTS Widgets REQUIRED)
 find_package(Qt5 COMPONENTS Network REQUIRED)
+find_package(Qt5 COMPONENTS Core Gui REQUIRED)
+
+
+set(QRC_FILE res.qrc)
+qt5_add_resources(QRC ${QRC_FILE})
+
 if(ANDROID)
   add_library(cake_game SHARED
     main.cpp
@@ -35,6 +43,9 @@ if(ANDROID)
     core.h
     TCP_server.h
     TCP_client.h
+    mypushbottom.h
+    mypushbottom.cpp
+    ${QRC}
   )
 else()
   add_executable(cake_game
@@ -45,8 +56,12 @@ else()
     core.h
     TCP_server.h
     TCP_client.h
+    mypushbottom.h
+    mypushbottom.cpp
+    ${QRC}
   )
 endif()
 
 target_link_libraries(cake_game PRIVATE Qt5::Widgets)
 target_link_libraries(cake_game PRIVATE Qt5::Network)
+target_link_libraries(cake_game PRIVATE Qt5::Core Qt5::Gui)

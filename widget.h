@@ -2,7 +2,10 @@
 #define WIDGET_H
 
 #include <QWidget>
-
+#include <QPainter>
+#include <QPixmap>
+#include <QDebug>
+#include <QtCore>
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -14,6 +17,7 @@ class Widget : public QWidget
 public:
     Widget(QWidget *parent = nullptr);
     ~Widget();
+    void paintEvent(QPaintEvent*);
 
 private:
     Ui::Widget *ui;
