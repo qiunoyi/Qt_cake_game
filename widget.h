@@ -6,6 +6,8 @@
 #include <QPixmap>
 #include <QDebug>
 #include <QtCore>
+#include "playscene.h"
+#include <QTimer>
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE

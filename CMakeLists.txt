@@ -45,6 +45,8 @@ if(ANDROID)
     TCP_client.h
     mypushbottom.h
     mypushbottom.cpp
+    playscene.h
+    playscene.cpp
     ${QRC}
   )
 else()
@@ -58,6 +60,8 @@ else()
     TCP_client.h
     mypushbottom.h
     mypushbottom.cpp
+    playscene.h
+    playscene.cpp
     ${QRC}
   )
 endif()

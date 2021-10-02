@@ -1,5 +1,7 @@
 #pragma once
 #include <QRandomGenerator>
+#include <QString>
+#include <QDebug>
 class game
 {
     int points[6];
@@ -8,6 +10,7 @@ class game
     int rank;
     int nums[7] = {0};
     int sum = 0;
+    QString rank_name;
 
 public:
     //掷骰子
@@ -46,8 +49,9 @@ public:
             }
         }
     }
+
     //排等级
-    void rank()
+    int get_rank()
     {
         if (nums[4] == 4 && nums[1] == 2)
             rank = 120;
@@ -91,6 +95,38 @@ public:
             rank = 10;
         else
             rank = 0;
+            return rank;
+    }
+
+    QString get_rank_name()
+    {
+        if (rank == 120)
+            rank_name = "金花";
+        else if (rank == 110)
+            rank_name = "六杯红";
+        else if (rank == 100)
+            rank_name = "遍地锦";
+        else if (rank >= 90)
+            rank_name = "六杯黑";
+        else if (rank >= 80)
+            rank_name = "五红";
+        else if (rank >= 70)
+            rank_name = "五子登科";
+        else if (rank >= 60)
+            rank_name = "四点红";
+        else if (rank >= 50)
+            rank_name = "对堂";
+        else if (rank >= 40)
+            rank_name = "三红";
+        else if (rank >= 30)
+            rank_name = "四进";
+        else if (rank >= 20)
+            rank_name = "二举";
+        else if (rank >= 10)
+            rank_name = "一秀";
+        else
+            rank_name = "没中奖";
+            return rank_name;
     }
 };
 //更细节的评分
