@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "gameroom.h"
+//我这里大小写好像出了点问题，类最好大写，我就将就的写了，后面才发现,而且最好改成OnlineScene
 namespace Ui {
 class online;
 }

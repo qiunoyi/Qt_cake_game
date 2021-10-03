@@ -8,6 +8,8 @@
 #include <QtCore>
 #include "playscene.h"
 #include <QTimer>
+#include "gameroom.h"
+#include "online.h"
 QT_BEGIN_NAMESPACE
 namespace Ui { class Widget; }
 QT_END_NAMESPACE
@@ -24,5 +26,6 @@ public:
 private:
     Ui::Widget *ui;
     PlayScene *local_play;
+    online *online_play;
 };
 #endif // WIDGET_H

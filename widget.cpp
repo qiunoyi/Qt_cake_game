@@ -25,7 +25,17 @@ Widget::Widget(QWidget *parent)
             });
         
     });
-    
+    MyPushButton *OnlineBtn=new MyPushButton(":/res/hall_b.jfif","",this);
+    OnlineBtn->move(this->width()*0.5-OnlineBtn->width()*0.5,this->height()*0.1);
+    connect(OnlineBtn,&MyPushButton::clicked,OnlineBtn,[=](){
+        online_play=new online;
+        OnlineBtn->zoom1();
+        OnlineBtn->zoom2();
+        QTimer::singleShot(500,this,[=]{
+            this->hide();
+            online_play->show();
+        });
+    });
     
 }
 
