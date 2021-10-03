@@ -1,21 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <author/>
- <comment/>
- <exportmacro/>
  <class>GameRoom</class>
  <widget class="QWidget" name="GameRoom">
   <property name="geometry">
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>400</width>
-    <height>300</height>
+    <width>252</width>
+    <height>319</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Form</string>
   </property>
+  <widget class="QTextEdit" name="CMsg">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>36</y>
+     <width>171</width>
+     <height>251</height>
+    </rect>
+   </property>
+  </widget>
  </widget>
- <pixmapfunction/>
+ <resources/>
  <connections/>
 </ui>

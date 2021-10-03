@@ -35,6 +35,11 @@ Widget::Widget(QWidget *parent)
             this->hide();
             online_play->show();
         });
+        connect(online_play,&online::backSignal,this,[=](){
+            this->show();
+            online_play->close();
+            online_play->deleteLater();
+            });
     });
     
 }

@@ -15,8 +15,20 @@ online::~online()
 
 void online::on_create_room_clicked()
 {
-    GameRoom *room=new GameRoom(this);
-    this->show();
+    room=new GameRoom();
+    room->show();
+}
 
+
+void online::on_GoBackBtn_clicked()
+{
+    emit this->backSignal();
+}
+
+
+void online::on_quick_join_clicked()
+{
+    jscene=new JoinScene;
+    jscene->show();
 }
 

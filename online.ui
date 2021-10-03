@@ -39,6 +39,19 @@
     <string>快速加入</string>
    </property>
   </widget>
+  <widget class="QPushButton" name="GoBackBtn">
+   <property name="geometry">
+    <rect>
+     <x>130</x>
+     <y>560</y>
+     <width>89</width>
+     <height>24</height>
+    </rect>
+   </property>
+   <property name="text">
+    <string>返回</string>
+   </property>
+  </widget>
  </widget>
  <resources/>
  <connections/>

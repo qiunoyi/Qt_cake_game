@@ -54,6 +54,9 @@ if(ANDROID)
     gameroom.cpp
     gameroom.h
     gameroom.ui
+    joinscene.cpp
+    joinscene.h
+    joinscene.ui
   )
 else()
   add_executable(cake_game
@@ -75,6 +78,9 @@ else()
     gameroom.cpp
     gameroom.h
     gameroom.ui
+    joinscene.cpp
+    joinscene.h
+    joinscene.ui
   )
 endif()
 
