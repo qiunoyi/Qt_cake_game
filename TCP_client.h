@@ -6,7 +6,7 @@ class TCP_client : public QObject
 {
     Q_OBJECT
 public:
-    TCP_client(QString n,QString i) : name(n),ip(i)
+    TCP_client(QString i,QString n) : ip(i),name(n)
     {
         //默认端口8848
         port=8848;
