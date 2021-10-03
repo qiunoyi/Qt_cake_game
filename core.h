@@ -128,6 +128,16 @@ public:
             rank_name = "没中奖";
             return rank_name;
     }
+    QString get_points()
+    {
+        QString temp;
+        for(auto it:points)
+        {
+            temp+=QString::number(it);
+            temp+=" ";
+        }
+        return temp;
+    }
 };
 //更细节的评分
 //     if (nums[4] == 4 && nums[1] == 2)
