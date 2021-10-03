@@ -10,8 +10,10 @@ class TCP_server : public QObject
 {
     Q_OBJECT
 public:
-    TCP_server(unsigned short p) : port(p)
+    TCP_server()
     {
+        //默认端口号8848
+        port=8848;
         m_s = new QTcpServer(this);
         connect_num = 0;
     }

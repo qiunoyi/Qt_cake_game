@@ -6,8 +6,10 @@ class TCP_client : public QObject
 {
     Q_OBJECT
 public:
-    TCP_client(unsigned short p, QString i) : port(p), ip(i)
+    TCP_client(QString n,QString i) : name(n),ip(i)
     {
+        //默认端口8848
+        port=8848;
     }
     void connect_Host()
     {
@@ -38,5 +40,6 @@ private:
     QTcpSocket *m_tcp;
     unsigned short port;
     QString ip;
+    QString name;
 public slots:
 };
