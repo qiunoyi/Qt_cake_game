@@ -2,7 +2,7 @@
 #define ONLINE_H
 
 #include <QWidget>
-
+#include "gameroom.h"
 namespace Ui {
 class online;
 }

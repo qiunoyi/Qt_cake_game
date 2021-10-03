@@ -15,7 +15,7 @@ online::~online()
 
 void online::on_create_room_clicked()
 {
-    QWidget *room=new QWidget(this);
+    GameRoom *room=new GameRoom(this);
     this->show();
 
 }

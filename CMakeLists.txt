@@ -51,6 +51,9 @@ if(ANDROID)
     online.h
     online.cpp
     online.ui
+    gameroom.cpp
+    gameroom.h
+    gameroom.ui
   )
 else()
   add_executable(cake_game
@@ -69,6 +72,9 @@ else()
     online.h
     online.cpp
     online.ui
+    gameroom.cpp
+    gameroom.h
+    gameroom.ui
   )
 endif()
 
