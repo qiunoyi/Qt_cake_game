@@ -32,8 +32,6 @@ private:
     Ui::online *ui;
     GameRoom *room;
     JoinScene *jscene;
-    TCP_client *client;
-    TCP_server *server;
 };
 
 #endif // ONLINE_H
