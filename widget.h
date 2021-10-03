@@ -23,5 +23,6 @@ public:
 
 private:
     Ui::Widget *ui;
+    PlayScene *local_play;
 };
 #endif // WIDGET_H

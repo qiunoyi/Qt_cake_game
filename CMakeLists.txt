@@ -48,6 +48,9 @@ if(ANDROID)
     playscene.h
     playscene.cpp
     ${QRC}
+    online.h
+    online.cpp
+    online.ui
   )
 else()
   add_executable(cake_game
@@ -63,6 +66,9 @@ else()
     playscene.h
     playscene.cpp
     ${QRC}
+    online.h
+    online.cpp
+    online.ui
   )
 endif()
 

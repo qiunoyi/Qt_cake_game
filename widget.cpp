@@ -11,12 +11,21 @@ Widget::Widget(QWidget *parent)
     localGameBtn->move(this->width()*0.5-localGameBtn->width()*0.5,this->height()*0.7);
     connect(localGameBtn,&MyPushButton::clicked,localGameBtn,[=]
     {
-        PlayScene *local_play=new PlayScene;
+        local_play=new PlayScene;
         localGameBtn->zoom1();
         localGameBtn->zoom2();
-        this->hide();
-        local_play->show();
+        QTimer::singleShot(500,this,[=]{
+            this->hide();
+            local_play->show();
+        });
+        connect(local_play,&PlayScene::backSignal,this,[=](){
+            this->show();
+            local_play->close();
+            local_play->deleteLater();
+            });
+        
     });
+    
     
 }
 

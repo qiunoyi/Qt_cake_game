@@ -4,8 +4,8 @@
 #include <QDebug>
 class game
 {
-    int points[6];
-    int same_nums[2];
+    int points[7];
+    int same_nums[2]={0};
     bool isShunzi;
     int rank;
     int nums[7] = {0};
@@ -16,7 +16,7 @@ public:
     //掷骰子
     void dice()
     {
-        for (int i = 0; i < 6; i++)
+        for (int i = 1; i <= 6; i++)
         {
             points[i] = QRandomGenerator ::global()->bounded(1, 7);
         }
@@ -42,10 +42,10 @@ public:
 
         for (int i = 1; i <= 6; i++)
         {
-            if (same_nums[0] < nums[i])
+            if (same_nums[1] < nums[i])
             {
-                same_nums[1] = i;
-                same_nums[0] = nums[i];
+                same_nums[0] = i;
+                same_nums[1] = nums[i];
             }
         }
     }
@@ -131,9 +131,9 @@ public:
     QString get_points()
     {
         QString temp;
-        for(auto it:points)
+        for(int i=1;i<=6;i++)
         {
-            temp+=QString::number(it);
+            temp+=QString::number(points[i]);
             temp+=" ";
         }
         return temp;
