@@ -24,9 +24,15 @@ public:
         connect(m_s, &QTcpServer::newConnection, this, [=]()
         {
             QTcpSocket *temp = m_s->nextPendingConnection();
+            qDebug()<<"已连接"<<endl;
             m_tcps.push_back(temp);
             ++connect_num;
-            read(temp);
+            //接受的数据可以有不同的模式之后override一下receive
+            connect(temp, &QTcpSocket::readyRead, this, [=]()
+            {
+                auto data=temp->readAll();
+                emit this->receive(data);
+            });
             connect(temp, &QTcpSocket::disconnected, this, [=, &temp]()
             {
                 m_tcps.erase(find(m_tcps.begin(),m_tcps.end(),temp));
@@ -39,17 +45,9 @@ public:
         });
     }
     //数据传输函数 这里定义需要的操作
-    void read(QTcpSocket *tcp)
+    void send(QTcpSocket *tcp,QString s)
     {
-        connect(tcp,&QTcpSocket::readyRead,this,[=]()
-        {
-            auto data=tcp->readAll();
-            //......
-        });
-    }
-    void send(QTcpSocket *tcp)
-    {
-        tcp->write("");
+        tcp->write(s.toUtf8());
         //.......
     }
     void Broadcasting()
@@ -59,7 +57,7 @@ public:
             it->write("");
         }
     }
-
+signals:void receive(QString s);
 
 private:
     QTcpServer *m_s;

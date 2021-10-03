@@ -2,7 +2,7 @@
 #define JOINSCENE_H
 
 #include <QWidget>
-
+#include "TCP_client.h"
 namespace Ui {
 class JoinScene;
 }
@@ -14,8 +14,9 @@ class JoinScene : public QWidget
 public:
     explicit JoinScene(QWidget *parent = nullptr);
     ~JoinScene();
-    Ui::JoinScene *ui;//这样不太安全其实
 private:
+    Ui::JoinScene *ui;
+    TCP_client *client;
 };
 
 #endif // JOINSCENE_H

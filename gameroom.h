@@ -2,7 +2,7 @@
 #define GAMEROOM_H
 
 #include <QWidget>
-
+#include "TCP_server.h"
 namespace Ui {
 class GameRoom;
 }
@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::GameRoom *ui;
+    TCP_server *server;
 };
 
 #endif // GAMEROOM_H

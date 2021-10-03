@@ -15,27 +15,25 @@ public:
     {
         m_tcp = new QTcpSocket(this);
         m_tcp->connectToHost(QHostAddress(ip), port);
+        //接受的数据可以有不同的模式之后override一下receive
+        connect(m_tcp,&QTcpSocket::readyRead,this,[=]()
+        {
+            auto data=m_tcp->readAll();
+            emit this->receive(data);
+        });
         connect(m_tcp, &QTcpSocket::disconnected, this, [=]() 
         {
             m_tcp->close();
             m_tcp->deleteLater();
         });
     }
-    void send(QTcpSocket *tcp)
+    void send(QString s)
     {
-        tcp->write("");
+        //这里加一条判断是否已经连接的语句
+        m_tcp->write(s.toUtf8());
         //.......
     }
-    void read(QTcpSocket *tcp)
-    {
-        connect(tcp,&QTcpSocket::readyRead,this,[=]()
-        {
-            auto data=tcp->readAll();
-            //......
-        });
-    }
-    
-
+signals:void receive(QString s);
 private:
     QTcpSocket *m_tcp;
     unsigned short port;
