@@ -5,5 +5,8 @@ OnlinePlay::OnlinePlay()
     connect(this,&OnlinePlay::get_key,this,[=](){
         begin_->setDisabled(false);
     });
-
+    connect(this,&OnlinePlay::game_end,this,[=]()
+    {
+        begin_->setDisabled(true);
+    });
 }
