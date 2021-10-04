@@ -13,7 +13,16 @@ JoinScene::JoinScene(QWidget *parent) :
         client->connect_Host();
         qDebug()<<"正在创建连接";
         client->send(name);
+        connect(client,&TCP_client::begin_game,this,[=](){
+            emit this->begingame();
+            onlinegame=new OnlinePlay;
+            onlinegame->show();
+            this->hide();
+        });
+
+
     });
+
 }
 
 JoinScene::~JoinScene()

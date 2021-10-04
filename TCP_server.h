@@ -10,6 +10,7 @@ class TCP_server : public QObject
 {
     Q_OBJECT
 public:
+    vector<QTcpSocket *> m_tcps;//这样有点不安全，时间紧迫
     TCP_server()
     {
         //默认端口号8848
@@ -57,11 +58,11 @@ public:
             it->write("");
         }
     }
+
 signals:void receive(QString s);
 
 private:
     QTcpServer *m_s;
-    vector<QTcpSocket *> m_tcps;
     unsigned short port;
     unsigned short connect_num;
 

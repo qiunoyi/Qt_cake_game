@@ -6,6 +6,8 @@ online::online(QWidget *parent) :
     ui(new Ui::online)
 {
     ui->setupUi(this);
+
+
 }
 
 online::~online()
@@ -16,6 +18,7 @@ online::~online()
 void online::on_create_room_clicked()
 {
     room=new GameRoom();
+    connect(room,&GameRoom::begingame,this,[=](){this->hide();});
     room->show();
 }
 
@@ -29,6 +32,7 @@ void online::on_GoBackBtn_clicked()
 void online::on_quick_join_clicked()
 {
     jscene=new JoinScene;
+    connect(jscene,&JoinScene::begingame,this,[=](){this->hide();});
     jscene->show();
 }
 

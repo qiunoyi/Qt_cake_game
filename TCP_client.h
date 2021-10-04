@@ -19,7 +19,21 @@ public:
         connect(m_tcp,&QTcpSocket::readyRead,this,[=]()
         {
             auto data=m_tcp->readAll();
-            emit this->receive(data);
+            if(data=="current_key") 
+            {
+                qDebug()<<"得到key";
+                emit this->receive_key();
+            }
+            else if(data=="begin_game") 
+            {
+                qDebug()<<"开始游戏";
+                emit this->begin_game();
+            }
+            else 
+            {
+                qDebug()<<"收到一般信息";
+                emit this->receive(data);
+            }
         });
         connect(m_tcp, &QTcpSocket::disconnected, this, [=]() 
         {
@@ -34,6 +48,8 @@ public:
         //.......
     }
 signals:void receive(QString s);
+        void receive_key();
+        void begin_game();
 private:
     QTcpSocket *m_tcp;
     unsigned short port;

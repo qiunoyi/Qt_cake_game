@@ -17,3 +17,16 @@ GameRoom::~GameRoom()
 {
     delete ui;
 }
+
+void GameRoom::on_beginBtn_clicked()
+{
+    for(auto &it:server->m_tcps)
+    {
+        server->send(it,"begin_game");
+    }
+    emit this->begingame();
+    onlinegame=new OnlinePlay;
+    this->hide();
+    onlinegame->show();
+}
+

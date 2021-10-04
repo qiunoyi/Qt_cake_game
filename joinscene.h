@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "TCP_client.h"
+#include "onlineplay.h"
 namespace Ui {
 class JoinScene;
 }
@@ -14,9 +15,11 @@ class JoinScene : public QWidget
 public:
     explicit JoinScene(QWidget *parent = nullptr);
     ~JoinScene();
+signals:void begingame();
 private:
     Ui::JoinScene *ui;
     TCP_client *client;
+    OnlinePlay *onlinegame;
 };
 
 #endif // JOINSCENE_H
