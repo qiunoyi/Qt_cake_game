@@ -71,6 +71,8 @@ else()
     mypushbottom.cpp
     playscene.h
     playscene.cpp
+    onlineplay.h
+    onlineplay.cpp
     ${QRC}
     online.h
     online.cpp
@@ -81,6 +83,8 @@ else()
     joinscene.cpp
     joinscene.h
     joinscene.ui
+    onlineplay.h
+    onlineplay.cpp
   )
 endif()
 

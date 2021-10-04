@@ -3,7 +3,7 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
 {
     
     setFixedSize(320,588);
-    QPushButton *begin_=new QPushButton(this);
+    begin_=new QPushButton(this);
     begin_->move(this->width()*0.5-begin_->width()*0.5,this->height()*0.7);
     begin_->setText("博饼");
     QLabel *result=new QLabel(this);
