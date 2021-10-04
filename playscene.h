@@ -11,5 +11,5 @@ public:
     PlayScene(QWidget*parent= nullptr);
     QPushButton *begin_;
 signals:void backSignal();
-
+void game_end();
 };

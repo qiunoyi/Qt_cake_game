@@ -2,8 +2,8 @@
 OnlinePlay::OnlinePlay()
 {
     begin_->setDisabled(true);
-    if(key)
-    {
+    connect(this,&OnlinePlay::get_key,this,[=](){
         begin_->setDisabled(false);
-    }
+    });
+
 }

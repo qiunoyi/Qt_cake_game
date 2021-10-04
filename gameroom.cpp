@@ -28,5 +28,6 @@ void GameRoom::on_beginBtn_clicked()
     onlinegame=new OnlinePlay;
     this->hide();
     onlinegame->show();
+    emit onlinegame->get_key();
 }
 

@@ -26,6 +26,7 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
     qDebug("points = %s\n",qPrintable(points));
     qDebug()<<rank<<endl;
     delete gamer;
+    emit this->game_end();
     });
     
     connect(goBack,&QPushButton::clicked,this,[=](){

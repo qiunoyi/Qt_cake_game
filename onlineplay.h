@@ -6,10 +6,8 @@ class OnlinePlay : public PlayScene
     Q_OBJECT
 public:
     OnlinePlay();
-
 signals:
-    void backSignal();
+    void get_key();
 
-private:
-    bool key = 0;
+   
 };
