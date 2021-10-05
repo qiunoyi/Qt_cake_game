@@ -26,10 +26,15 @@ JoinScene::JoinScene(QWidget *parent) :
                     client->send("game_end");
                 });
             });
+            connect(client,&TCP_client::receive_key,this,[=](){
+                emit onlinegame->get_key();
+            });
+            connect(client,&TCP_client::game_result,this,[=](QString name_,QString points_,QString rank_name_){
+                onlinegame->cur_user->setText(name_);
+                onlinegame->result->setText(points_+rank_name_);
+            });
         });
-        connect(client,&TCP_client::receive_key,this,[=](){
-            emit onlinegame->get_key();
-        });
+        
         
     });
 

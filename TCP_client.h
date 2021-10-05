@@ -30,6 +30,19 @@ public:
                 qDebug()<<"开始游戏";
                 emit this->begin_game();
             }
+            else if(data.startsWith("game_result"))
+            {
+                int index1=data.indexOf('\n',0);
+                int index2=data.indexOf('\n',index1+1);
+                int index3=data.indexOf('\n',index2+1);
+                auto name=data.mid(index1+1,index2-index1-1);
+                auto points=data.mid(index2+1,index3-index2-1);
+                auto rank_name=data.mid(index3+1);
+                qDebug()<<name;
+                qDebug()<<points;
+                qDebug()<<rank_name;
+                emit this->game_result(name,points,rank_name);
+            }
             else 
             {
                 qDebug()<<"收到一般信息";
@@ -55,6 +68,7 @@ public:
 signals:void receive(QString s);
         void receive_key();
         void begin_game();
+        void game_result(QString name,QString points,QString rank_name);
 private:
     QTcpSocket *m_tcp;
     unsigned short port;

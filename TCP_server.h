@@ -70,11 +70,11 @@ public:
         tcp->write(s.toUtf8());
         //.......
     }
-    void Broadcasting()
+    void Broadcasting(QString s)
     {
         for(auto it:m_tcps)
         {
-            it->write("");
+            it->write(s.toUtf8());
         }
     }
 

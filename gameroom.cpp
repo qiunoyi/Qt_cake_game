@@ -49,6 +49,7 @@ void GameRoom::on_beginBtn_clicked()
     connect(server,&TCP_server::game_result,this,[=](QString name_,QString points_,QString rank_name_){
         onlinegame->cur_user->setText(name_);
         onlinegame->result->setText(points_+rank_name_);
+        server->Broadcasting(("game_result\n"+name_+'\n'+points_+'\n'+rank_name_).toUtf8());
     });
 
 }
