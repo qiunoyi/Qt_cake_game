@@ -13,7 +13,7 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
 
     //当前用户标签
     cur_user=new QLabel(this);
-    cur_user->setText("本地用户");
+    cur_user->setText("local");
     cur_user->setFixedSize(160,40);
     cur_user->move(0,0);
 

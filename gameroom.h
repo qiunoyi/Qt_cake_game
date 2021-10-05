@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "TCP_server.h"
 #include "onlineplay.h"
+#include <QTimer>
 namespace Ui {
 class GameRoom;
 }

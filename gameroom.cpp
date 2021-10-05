@@ -32,6 +32,10 @@ void GameRoom::on_beginBtn_clicked()
     //要保证连接数大于1
     connect(onlinegame,&OnlinePlay::game_end,this,[=](){
         server->send(server->m_tcps.front(),"current_key");
+        QString name_="local";
+        QTimer::singleShot(1000,this,[=]{
+        server->Broadcasting(("game_result\n"+name_+'\n'+onlinegame->points+'\n'+onlinegame->rank_name).toUtf8());            
+        });
     });
     connect(server,&TCP_server::game_end,this,[=](){
         qDebug()<<"收到服务端发来的游戏结束消息";
@@ -43,6 +47,7 @@ void GameRoom::on_beginBtn_clicked()
         else 
         {
             emit onlinegame->get_key();
+            onlinegame->cur_user->setText("local");
             key_cur=1;
         }
     });
