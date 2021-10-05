@@ -11,6 +11,7 @@ class TCP_server : public QObject
     Q_OBJECT
 public:
     vector<QTcpSocket *> m_tcps;//这样有点不安全，时间紧迫
+    unsigned short connect_num;
     TCP_server()
     {
         //默认端口号8848
@@ -32,7 +33,12 @@ public:
             connect(temp, &QTcpSocket::readyRead, this, [=]()
             {
                 auto data=temp->readAll();
-                emit this->receive(data);
+                if(data=="game_end")
+                {
+                    qDebug()<<"客户端游戏结束";
+                    emit this->game_end();
+                }
+                else emit this->receive(data);
             });
             connect(temp, &QTcpSocket::disconnected, this, [=, &temp]()
             {
@@ -60,11 +66,12 @@ public:
     }
 
 signals:void receive(QString s);
+        void game_end();
 
 private:
     QTcpServer *m_s;
     unsigned short port;
-    unsigned short connect_num;
+    
 
 public slots:
 };

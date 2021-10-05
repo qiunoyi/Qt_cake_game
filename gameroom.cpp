@@ -29,5 +29,23 @@ void GameRoom::on_beginBtn_clicked()
     this->hide();
     onlinegame->show();
     emit onlinegame->get_key();
+    //要保证连接数大于1
+    connect(onlinegame,&OnlinePlay::game_end,this,[=](){
+        server->send(server->m_tcps.front(),"current_key");
+    });
+    connect(server,&TCP_server::game_end,this,[=](){
+        qDebug()<<"收到服务端发来的游戏结束消息";
+        if(key_cur<server->connect_num)
+        {
+            server->send(server->m_tcps[key_cur],"current_key");
+            key_cur++;
+        }
+        else 
+        {
+            emit onlinegame->get_key();
+            key_cur=1;
+        }
+    });
+
 }
 

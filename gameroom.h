@@ -23,6 +23,7 @@ private:
     Ui::GameRoom *ui;
     TCP_server *server;
     OnlinePlay *onlinegame;
+    int key_cur=1;
 };
 
 #endif // GAMEROOM_H

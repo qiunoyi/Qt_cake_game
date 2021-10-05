@@ -18,9 +18,15 @@ JoinScene::JoinScene(QWidget *parent) :
             onlinegame=new OnlinePlay;
             onlinegame->show();
             this->hide();
+            connect(onlinegame,&OnlinePlay::game_end,this,[=](){
+                qDebug()<<"收到onlineplay发来的消息";
+                emit client->send("game_end");
+            });
         });
-
-
+        connect(client,&TCP_client::receive_key,this,[=](){
+            emit onlinegame->get_key();
+        });
+        
     });
 
 }
