@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "TCP_client.h"
 #include "onlineplay.h"
+#include <QTimer>
 namespace Ui {
 class JoinScene;
 }

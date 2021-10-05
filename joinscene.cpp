@@ -20,7 +20,11 @@ JoinScene::JoinScene(QWidget *parent) :
             this->hide();
             connect(onlinegame,&OnlinePlay::game_end,this,[=](){
                 qDebug()<<"收到onlineplay发来的消息";
-                emit client->send("game_end");
+                client->send_result(client->name,onlinegame->points,onlinegame->rank_name);
+                //延迟1s
+                QTimer::singleShot(1000,this,[=]{
+                    client->send("game_end");
+                });
             });
         });
         connect(client,&TCP_client::receive_key,this,[=](){

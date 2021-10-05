@@ -6,6 +6,7 @@ class TCP_client : public QObject
 {
     Q_OBJECT
 public:
+    QString name;
     TCP_client(QString i,QString n) : ip(i),name(n)
     {
         //默认端口8848
@@ -47,6 +48,10 @@ public:
         m_tcp->write(s.toUtf8());
         //.......
     }
+    void send_result(QString name,QString points,QString rank_name)
+    {
+        m_tcp->write(("game_result\n"+name+'\n'+points+'\n'+rank_name).toUtf8());
+    }
 signals:void receive(QString s);
         void receive_key();
         void begin_game();
@@ -54,6 +59,6 @@ private:
     QTcpSocket *m_tcp;
     unsigned short port;
     QString ip;
-    QString name;
+
 public slots:
 };

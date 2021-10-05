@@ -46,6 +46,10 @@ void GameRoom::on_beginBtn_clicked()
             key_cur=1;
         }
     });
+    connect(server,&TCP_server::game_result,this,[=](QString name_,QString points_,QString rank_name_){
+        onlinegame->cur_user->setText(name_);
+        onlinegame->result->setText(points_+rank_name_);
+    });
 
 }
 

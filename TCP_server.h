@@ -38,6 +38,16 @@ public:
                     qDebug()<<"客户端游戏结束";
                     emit this->game_end();
                 }
+                else if(data.startsWith("game_result"))
+                {
+                    qDebug()<<data;
+                    qDebug()<<data.indexOf('\n',1)+1;
+                    qDebug()<<data.indexOf('\n',2)+1;
+                    auto name=data.mid(data.indexOf('\n',1)+1,data.indexOf('\n',2)-data.indexOf('\n',1));
+                    auto points=data.mid(data.indexOf('\n',2)+1,data.indexOf('\n',3)-data.indexOf('\n',2));
+                    auto rank_name=data.mid(data.indexOf('\n',3)+1);
+                    emit this->game_result(name,points,rank_name);
+                }
                 else emit this->receive(data);
             });
             connect(temp, &QTcpSocket::disconnected, this, [=, &temp]()
@@ -67,6 +77,7 @@ public:
 
 signals:void receive(QString s);
         void game_end();
+        void game_result(QString name,QString points,QString rank_name);
 
 private:
     QTcpServer *m_s;

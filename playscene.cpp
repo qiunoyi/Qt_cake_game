@@ -6,11 +6,17 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
     begin_=new QPushButton(this);
     begin_->move(this->width()*0.5-begin_->width()*0.5,this->height()*0.7);
     begin_->setText("博饼");
-    QLabel *result=new QLabel(this);
+    result=new QLabel(this);
     result->setFixedSize(160,40);
     result->setText("这是一张图");
     result->move(this->width()*0.5-result->width()*0.5,this->height()*0.5);
-    
+
+    //当前用户标签
+    cur_user=new QLabel(this);
+    cur_user->setText("本地用户");
+    cur_user->setFixedSize(160,40);
+    cur_user->move(0,0);
+
     QPushButton *goBack=new QPushButton(this);
     goBack->move(this->width()*0.5-goBack->width()*0.5,this->height()*0.6);
     goBack->setText("返回");
@@ -20,8 +26,8 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
     gamer->dice();
     gamer->judge();
     int rank=gamer->get_rank();
-    QString rank_name=gamer->get_rank_name();
-    QString points=gamer->get_points();
+    rank_name=gamer->get_rank_name();
+    points=gamer->get_points();
     result->setText(points+rank_name);
     qDebug("points = %s\n",qPrintable(points));
     qDebug()<<rank<<endl;
