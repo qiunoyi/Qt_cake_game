@@ -40,12 +40,15 @@ public:
                 }
                 else if(data.startsWith("game_result"))
                 {
-                    qDebug()<<data;
-                    qDebug()<<data.indexOf('\n',1)+1;
-                    qDebug()<<data.indexOf('\n',2)+1;
-                    auto name=data.mid(data.indexOf('\n',1)+1,data.indexOf('\n',2)-data.indexOf('\n',1));
-                    auto points=data.mid(data.indexOf('\n',2)+1,data.indexOf('\n',3)-data.indexOf('\n',2));
-                    auto rank_name=data.mid(data.indexOf('\n',3)+1);
+                    int index1=data.indexOf('\n',0);
+                    int index2=data.indexOf('\n',index1+1);
+                    int index3=data.indexOf('\n',index2+1);
+                    auto name=data.mid(index1+1,index2-index1-1);
+                    auto points=data.mid(index2+1,index3-index2-1);
+                    auto rank_name=data.mid(index3+1);
+                    qDebug()<<name;
+                    qDebug()<<points;
+                    qDebug()<<rank_name;
                     emit this->game_result(name,points,rank_name);
                 }
                 else emit this->receive(data);
