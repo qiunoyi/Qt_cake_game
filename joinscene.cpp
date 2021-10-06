@@ -6,10 +6,11 @@ JoinScene::JoinScene(QWidget *parent) :
     ui(new Ui::JoinScene)
 {
     ui->setupUi(this);
+    ui->roomIP->setText("127.0.0.1");
     connect(ui->pushButton,&QPushButton::clicked,this,[=](){
         QString ip=ui->roomIP->text();
         QString name=ui->userName->text();
-        client= new TCP_client(ip,name);
+        client= new TCP_client(ip,name,this);
         client->connect_Host();
         qDebug()<<"正在创建连接";
         client->send(name);
@@ -32,6 +33,12 @@ JoinScene::JoinScene(QWidget *parent) :
             connect(client,&TCP_client::game_result,this,[=](QString name_,QString points_,QString rank_name_){
                 onlinegame->cur_user->setText(name_);
                 onlinegame->result->setText(points_+rank_name_);
+            });
+            //返回
+            connect(onlinegame,&OnlinePlay::backSignal,this,[=](){
+                onlinegame->close();
+                onlinegame->deleteLater();
+                emit this->backSignal();
             });
         });
         

@@ -17,6 +17,7 @@ public:
     explicit GameRoom(QWidget *parent = nullptr);
     ~GameRoom();
 signals:void begingame();
+void backSignal();
 private slots:
     void on_beginBtn_clicked();
 

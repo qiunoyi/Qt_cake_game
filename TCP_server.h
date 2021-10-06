@@ -12,7 +12,7 @@ class TCP_server : public QObject
 public:
     vector<QTcpSocket *> m_tcps;//这样有点不安全，时间紧迫
     unsigned short connect_num;
-    TCP_server()
+    TCP_server(QObject *parent=nullptr):QObject(parent)
     {
         //默认端口号8848
         port=8848;

@@ -6,7 +6,7 @@ GameRoom::GameRoom(QWidget *parent) :
     ui(new Ui::GameRoom)
 {
     ui->setupUi(this);
-    server=new TCP_server;
+    server=new TCP_server(this);
     server->listen();
     connect(server,&TCP_server::receive,this,[=](QString s){
         ui->CMsg->append(s);
@@ -55,6 +55,11 @@ void GameRoom::on_beginBtn_clicked()
         onlinegame->cur_user->setText(name_);
         onlinegame->result->setText(points_+rank_name_);
         server->Broadcasting(("game_result\n"+name_+'\n'+points_+'\n'+rank_name_).toUtf8());
+    });
+    connect(onlinegame,&OnlinePlay::backSignal,this,[=](){
+        onlinegame->close();
+        onlinegame->deleteLater();
+        emit this->backSignal();
     });
 
 }

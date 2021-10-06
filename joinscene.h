@@ -17,6 +17,7 @@ public:
     explicit JoinScene(QWidget *parent = nullptr);
     ~JoinScene();
 signals:void begingame();
+void backSignal();
 private:
     Ui::JoinScene *ui;
     TCP_client *client;
