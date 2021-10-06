@@ -8,7 +8,8 @@ Widget::Widget(QWidget *parent)
 {
     ui->setupUi(this);
     MyPushButton *localGameBtn=new MyPushButton(":/res/local_game_b.jfif","",this);
-    localGameBtn->move(this->width()*0.5-localGameBtn->width()*0.5,this->height()*0.7);
+    localGameBtn->setIconSize(QSize(360,360));
+    localGameBtn->move(this->width()*0.5-localGameBtn->width()*0.5,360);
     connect(localGameBtn,&MyPushButton::clicked,localGameBtn,[=]
     {
         local_play=new PlayScene;
@@ -26,7 +27,8 @@ Widget::Widget(QWidget *parent)
         
     });
     MyPushButton *OnlineBtn=new MyPushButton(":/res/hall_b.jfif","",this);
-    OnlineBtn->move(this->width()*0.5-OnlineBtn->width()*0.5,this->height()*0.1);
+    OnlineBtn->setIconSize(QSize(280,280));
+    OnlineBtn->move(this->width()*0.5-OnlineBtn->width()*0.5,0);
     connect(OnlineBtn,&MyPushButton::clicked,OnlineBtn,[=](){
         online_play=new online;
         OnlineBtn->zoom1();
