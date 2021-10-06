@@ -13,6 +13,7 @@ Widget::Widget(QWidget *parent)
     connect(localGameBtn,&MyPushButton::clicked,localGameBtn,[=]
     {
         local_play=new PlayScene;
+        local_play->setGeometry(this->geometry());
         localGameBtn->zoom1();
         localGameBtn->zoom2();
         QTimer::singleShot(500,this,[=]{

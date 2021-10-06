@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>365</width>
-    <height>632</height>
+    <width>400</width>
+    <height>660</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,8 +16,8 @@
   <widget class="QPushButton" name="create_room">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>390</y>
+     <x>140</x>
+     <y>240</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -29,8 +29,8 @@
   <widget class="QPushButton" name="quick_join">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>480</y>
+     <x>140</x>
+     <y>330</y>
      <width>93</width>
      <height>28</height>
     </rect>
@@ -42,8 +42,8 @@
   <widget class="QPushButton" name="GoBackBtn">
    <property name="geometry">
     <rect>
-     <x>130</x>
-     <y>560</y>
+     <x>140</x>
+     <y>410</y>
      <width>89</width>
      <height>24</height>
     </rect>
