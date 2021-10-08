@@ -3,6 +3,8 @@
 #include "core.h"
 #include "mypushbottom.h"
 #include <QLabel>
+#include <QPixmap>
+#include<QPainter>
 
 class PlayScene : public QWidget
 {
@@ -14,6 +16,7 @@ public:
     QPushButton *begin_;
     QLabel *cur_user;
     QLabel *result;
+    void paintEvent(QPaintEvent*);
 signals:void backSignal();
 void game_end();
 };
