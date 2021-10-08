@@ -17,6 +17,7 @@ JoinScene::JoinScene(QWidget *parent) :
         connect(client,&TCP_client::begin_game,this,[=](){
             emit this->begingame();
             onlinegame=new OnlinePlay;
+            onlinegame->setGeometry(this->x()-65,this->y()-200,onlinegame->width(),onlinegame->height());
             onlinegame->show();
             this->hide();
             connect(onlinegame,&OnlinePlay::game_end,this,[=](){

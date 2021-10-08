@@ -26,6 +26,7 @@ void GameRoom::on_beginBtn_clicked()
     }
     emit this->begingame();
     onlinegame=new OnlinePlay;
+    onlinegame->setGeometry(this->x()-65,this->y()-200,onlinegame->width(),onlinegame->height());
     this->hide();
     onlinegame->show();
     emit onlinegame->get_key();

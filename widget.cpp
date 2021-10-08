@@ -32,6 +32,7 @@ Widget::Widget(QWidget *parent)
     OnlineBtn->move(this->width()*0.5-OnlineBtn->width()*0.5,0);
     connect(OnlineBtn,&MyPushButton::clicked,OnlineBtn,[=](){
         online_play=new online;
+        online_play->setGeometry(this->geometry());
         OnlineBtn->zoom1();
         OnlineBtn->zoom2();
         QTimer::singleShot(500,this,[=]{
