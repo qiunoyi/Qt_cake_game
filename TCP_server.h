@@ -51,6 +51,14 @@ public:
                     qDebug()<<rank_name;
                     emit this->game_result(name,points,rank_name);
                 }
+                else if(data.startsWith("chat_"))
+                {
+                    int index1=data.indexOf('_',0);
+                    int index2=data.indexOf('_',index1+1);
+                    auto name=data.mid(index1+1,index2-index1-1);
+                    auto s=data.mid(index2+1);
+                    emit this->chat(name,s);
+                }
                 else emit this->receive(data);
             });
             connect(temp, &QTcpSocket::disconnected, this, [=, &temp]()
@@ -81,7 +89,7 @@ public:
 signals:void receive(QString s);
         void game_end();
         void game_result(QString name,QString points,QString rank_name);
-
+        void chat(QString name,QString s);
 private:
     QTcpServer *m_s;
     unsigned short port;

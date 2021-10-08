@@ -41,6 +41,9 @@ JoinScene::JoinScene(QWidget *parent) :
                 onlinegame->deleteLater();
                 emit this->backSignal();
             });
+            connect(onlinegame,&OnlinePlay::chat_,this,[=](QString s){
+                client->send("chat_"+client->name+'_'+s);
+            });
         });
         
         

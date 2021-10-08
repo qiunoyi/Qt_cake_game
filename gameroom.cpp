@@ -62,6 +62,8 @@ void GameRoom::on_beginBtn_clicked()
         onlinegame->deleteLater();
         emit this->backSignal();
     });
-
+    connect(server,&TCP_server::chat,this,[=](QString name,QString s){
+        onlinegame->chatLabel->setText(onlinegame->chatLabel->text()+'\n'+name+':'+s);
+    });
 }
 
