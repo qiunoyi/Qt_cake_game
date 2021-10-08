@@ -24,4 +24,9 @@ OnlinePlay::OnlinePlay(QWidget*parent): PlayScene(parent)
             tnb->deleteLater();
         });
     });
+    chatLabel =new QLabel(this);
+    chatLabel->move(this->width()*0.5-chatLabel->width()*0.5,10);
+    chatLabel->setFixedSize(260,110);
+    chatLabel->setFont(QFont("Microsoft YaHei",12,50));
+    chatLabel->setText("聊天窗口");
 }
