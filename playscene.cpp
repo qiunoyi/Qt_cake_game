@@ -7,9 +7,10 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
     begin_->move(this->width()*0.5-begin_->width()*0.5,this->height()*0.7);
     begin_->setText("博饼");
     result=new QLabel(this);
-    result->setFixedSize(160,40);
-    result->setText("这是一张图");
-    result->move(this->width()*0.5-result->width()*0.5,this->height()*0.5);
+    result->setFixedSize(240,60);
+    result->setFont(QFont("Microsoft YaHei",16,75));
+    result->setText("        博饼结果");
+    result->move(this->width()*0.5-result->width()*0.5,this->height()*0.45);
 
     //当前用户标签
     cur_user=new QLabel(this);
