@@ -73,6 +73,8 @@ else()
     playscene.cpp
     onlineplay.h
     onlineplay.cpp
+    tasknamebox.h
+    tasknamebox.cpp
     ${QRC}
     online.h
     online.cpp
@@ -85,6 +87,8 @@ else()
     joinscene.ui
     onlineplay.h
     onlineplay.cpp
+    tasknamebox.h
+    tasknamebox.cpp
   )
 endif()
 
