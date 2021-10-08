@@ -10,12 +10,16 @@ PlayScene::PlayScene(QWidget*parent): QWidget(parent)
     result->setFixedSize(240,60);
     result->setFont(QFont("Microsoft YaHei",16,75));
     result->setText("        博饼结果");
+    QPalette pe;
+    pe.setColor(QPalette::WindowText,Qt::red);
+    result->setPalette(pe);
     result->move(this->width()*0.5-result->width()*0.5,this->height()*0.45);
 
     //当前用户标签
     cur_user=new QLabel(this);
     cur_user->setText("local");
-    cur_user->setFixedSize(160,40);
+    cur_user->setFixedSize(240,60);
+    cur_user->setFont(QFont("Microsoft YaHei",16,50));
     cur_user->move(0,0);
 
     QPushButton *goBack=new QPushButton(this);

@@ -4,8 +4,8 @@
 #include "mypushbottom.h"
 #include <QLabel>
 #include <QPixmap>
-#include<QPainter>
-
+#include <QPainter>
+#include <QPalette>
 class PlayScene : public QWidget
 {
     Q_OBJECT
