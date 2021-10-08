@@ -43,3 +43,12 @@ void online::on_quick_join_clicked()
     });
 }
 
+void online::paintEvent(QPaintEvent* event)
+{
+    QPainter painter(this);
+    QPixmap pix;
+    pix.load(":/res/background.jfif");
+    painter.drawPixmap(0,0,this->width(),this->height(),pix);
+}
+
+
